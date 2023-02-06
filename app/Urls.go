@@ -1,18 +1,18 @@
 package app
 
 import (
-	"example/persons/Control"
-	"example/persons/Control/CreateUser"
-	"example/persons/Control/DeleteUser"
-	"example/persons/Control/GetUser"
-	"example/persons/Control/GetUsers"
+	"example/persons/control"
+	"example/persons/control/create_user"
+	"example/persons/control/delete_user"
+	"example/persons/control/get_user"
+	"example/persons/control/get_users"
 	"example/persons/middle"
 )
 
 func Urls() {
-	router.POST("/CreateUsers",middle.Authenticate, CreateUser.CreateUserHandler)
-	router.DELETE("/DeleteUser",middle.Authenticate, DeleteUser.DeleteUserHandler)
-	router.GET("/GetUser",middle.Authenticate, GetUser.GetUserHandler)
-	router.GET("/GetUsers",middle.Authenticate, GetUsers.GetUsersHandler)
-	router.POST("/login", Control.Login)
+	router.POST("/CreateUsers",middle.Authenticate, create_user.Create_user_handler)
+	router.DELETE("/DeleteUser",middle.Authenticate, delete_user.Delete_user_handler)
+	router.GET("/GetUser",middle.Authenticate, get_user.Get_user_handler)
+	router.GET("/GetUsers",middle.Authenticate, get_users.Get_users_handler)
+	router.POST("/login", control.Login)
 }

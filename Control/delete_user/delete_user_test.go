@@ -1,4 +1,4 @@
-package control
+package delete_user
 import(
 	"testing"
 	"bytes"
@@ -15,17 +15,11 @@ func init() {
 	database.Connection()
 }
 
-
-func TestLogin(t *testing.T){
+func TestDeleteUserHandler(t *testing.T) {
 	w := httptest.NewRecorder()
 	c, r := gin.CreateTestContext(w)
-	r.GET("/",Login)
-	c.Request, _ = http.NewRequest(http.MethodGet, "/", bytes.NewBuffer([]byte(`
-	{
-	"admin",
-	"password"
-	}
-	`)))
+	r.GET("/",Delete_user_handler)
+	c.Request, _ = http.NewRequest(http.MethodGet, "/", bytes.NewBuffer([]byte(``)))
 	r.ServeHTTP(w, c.Request)
 	assert.Equal(t, 200, w.Code)
 }

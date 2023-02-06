@@ -5,7 +5,7 @@ import(
 	"strconv"
 	"github.com/gin-gonic/gin"
 	"math"
-	"example/persons/repository/GetUsersRepo"
+	"example/persons/repository/get_users_repository"
 )
 func Pagination(c *gin.Context)(int,int,error){
 	var p models.Pagination
@@ -16,7 +16,7 @@ func Pagination(c *gin.Context)(int,int,error){
 	perPage, _ = strconv.Atoi(p.Limit)
 	page, _ = strconv.Atoi(p.Page)
 	var Totalrows int64
-	GetUsersRepo.CountRepo(&Totalrows)
+	get_users_repository.Count_repository(&Totalrows)
 	totalPages:=math.Ceil(float64(Totalrows)/float64(perPage))
 	if page>int(totalPages){
 		c.JSON(400,gin.H{"Message":"Invalid page"})

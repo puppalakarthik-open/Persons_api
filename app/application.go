@@ -2,7 +2,7 @@ package app
 
 import (
 	"example/persons/config"
-	"example/persons/db"
+	"example/persons/database"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +13,7 @@ func App() {
 	gin.SetMode(gin.ReleaseMode)
 	router = gin.Default()
 	config.LoadConfig()
-	db.Connection()
+	database.Connection()
 	fmt.Println("Working...")
 	Urls()
 	router.Run(":" + config.AppConfig.Port)
