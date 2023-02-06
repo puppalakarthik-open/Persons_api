@@ -4,3 +4,4 @@ go.sum
 .vscode
 .env
 .DS_Store
+main
