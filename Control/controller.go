@@ -23,10 +23,10 @@ func Login(c *gin.Context) {
 		c.Abort()
 		return
 	}
-	alpha,err:=jwt.Generate_token(validperson)
+	personString,err:=jwt.Generate_token(validperson)
 	if err!=nil{
 		c.JSON(401,gin.H{"Message":"Unauthorized"})
 		c.Abort()
 	}
-	c.JSON(200,gin.H{"Message":alpha})
+	c.JSON(200,gin.H{"Message":personString})
 }
