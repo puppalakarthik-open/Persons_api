@@ -15,7 +15,7 @@ type DbConfigStruct struct{
 }
 var Db *DbConfigStruct
 
-func loadDbConfig(){
+func load_database_config(){
 	Db=&DbConfigStruct{}
 	err := envconfig.Process("db", Db)
 	if err != nil {

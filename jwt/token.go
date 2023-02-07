@@ -8,7 +8,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 
-func GenerateToken(validperson models.PersonRequest) (string, error) {
+func Generate_token(validperson models.PersonRequest) (string, error) {
 	type MyCustomClaims struct {
 		user string 
 		jwt.StandardClaims
@@ -24,7 +24,7 @@ func GenerateToken(validperson models.PersonRequest) (string, error) {
 	return token.SignedString([]byte("secret"))
 }
 
-func Validatetoken(tokenString string) (bool, string) {
+func Validate_token(tokenString string) (bool, string) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, nil

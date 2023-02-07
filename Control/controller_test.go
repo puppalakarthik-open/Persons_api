@@ -11,12 +11,12 @@ import(
 )
 
 func init() {
-	config.LoadConfig()
+	config.Load_config()
 	database.Connection()
 }
 
 
-func TestLogin(t *testing.T){
+func Test_Login(t *testing.T){
 	w := httptest.NewRecorder()
 	c, r := gin.CreateTestContext(w)
 	r.GET("/",Login)

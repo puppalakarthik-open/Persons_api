@@ -13,7 +13,7 @@ import (
 )
 
 func init() {
-	config.LoadConfig()
+	config.Load_config()
 	database.Connection()
 }
 
@@ -24,9 +24,9 @@ func TestCreateUserHandler(t *testing.T) {
 	c.Request, _ = http.NewRequest(http.MethodPost, "/", bytes.NewBuffer([]byte(`
 	{
 		"Name": "Kuradu",
-		"ID": 37,
+		"ID": 97,
 		"Gender": "M",
-		"BloodType": "C+",
+		"Blood_Type": "C+",
 		"Num": 896050
 	}
 	`)))

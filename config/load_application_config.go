@@ -1,6 +1,6 @@
 package config
 import(
-	"fmt"
+	"log"
 	"github.com/kelseyhightower/envconfig"
 )
 type AppconfigStruct struct{
@@ -12,11 +12,11 @@ type AppconfigStruct struct{
 }
 var AppConfig *AppconfigStruct
 
-func loadAppConfig() {
+func load_application_config() {
 	AppConfig = &AppconfigStruct{}
 	err := envconfig.Process("app", AppConfig)
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Fatal(err.Error())
 	}
 }
 

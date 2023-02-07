@@ -1,4 +1,4 @@
-package Pagination
+package pagination
 import(
 	"example/persons/models"
 	"errors"

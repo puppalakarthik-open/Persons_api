@@ -2,20 +2,12 @@ package get_user_service
 
 import (
 	"example/persons/models"
-	"strconv"
-	"github.com/gin-gonic/gin"
 	"example/persons/repository/get_user_repository"
 )
-func Get_user_service(c *gin.Context)([]models.Person,error) {
-	var tempperson []models.Person
-	idStr:=c.DefaultQuery("id","1")
-	var id int
-	if idStr!=""{
-		id, _ = strconv.Atoi(idStr)
-	}
-	err:=get_user_repository.Get_user_repository(&tempperson,id)
+func Get_user_service(tempPerson []models.Person,id int)([]models.Person,error) {
+	err:=get_user_repository.Get_user_repository(&tempPerson,id)
 	if err!=nil{
-		return tempperson,err
+		return tempPerson,err
 	}
-	return tempperson,nil
+	return tempPerson,nil
 }

@@ -11,7 +11,7 @@ import(
 )
 
 func init() {
-	config.LoadConfig()
+	config.Load_config()
 	database.Connection()
 }
 

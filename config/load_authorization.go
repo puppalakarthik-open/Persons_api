@@ -3,15 +3,15 @@ package config
 import (
 	"example/persons/models"
 	"github.com/kelseyhightower/envconfig"
-	"fmt"
+	"log"
 )
 var AuthorizedPerson *models.PersonRequest
 
-func loadAuthConfig() {
+func load_authorization_config() {
 	AuthorizedPerson = &models.PersonRequest{}
 	err := envconfig.Process("CRED", AuthorizedPerson)
 	
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Fatal(err.Error())
 	}
 }

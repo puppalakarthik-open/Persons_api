@@ -7,7 +7,7 @@ type Person struct {
 	Name      string `json:"name"`
 	ID        uint    `json:"id" sql:"AUTO_INCREMENT" gorm:"primary_key"`
 	Gender    string `json:"gender"`
-	BloodType string `json:"bloodtype"`
+	BloodType string `json:"blood_type"`
 	Num       int32   `json:"num"`
 }
 type PersonRequest struct {
@@ -19,10 +19,13 @@ type PersonResponse struct {
 	Name      string `json:"name"`
 	ID        uint    `json:"id"` 
 	Gender    string `json:"gender"`
-	BloodType string `json:"bloodtype"`
+	BloodType string `json:"blood_type"`
 	Num       int32   `json:"num"`
 }
 type Pagination struct{
 	Page	string `json:"page"`
 	Limit string `json:"limit"`
+}
+type Id struct{
+	Id string `json:"id"`
 }
